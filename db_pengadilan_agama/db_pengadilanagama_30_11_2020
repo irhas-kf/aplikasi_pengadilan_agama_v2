@@ -1,0 +1,403 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 30, 2020 at 03:01 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_pengadilanagama`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_laporan`
+--
+
+CREATE TABLE `tb_laporan` (
+  `id_laporan` int(11) NOT NULL,
+  `judul_laporan` varchar(100) NOT NULL,
+  `bulan_tahun_laporan` varchar(100) NOT NULL,
+  `tanggal_pengajuan_laporan` varchar(100) DEFAULT NULL,
+  `tanggal_konfirmasi_valid_laporan` varchar(100) DEFAULT NULL,
+  `status_laporan` varchar(100) NOT NULL,
+  `updated_at` varchar(100) NOT NULL,
+  `created_at` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_laporan`
+--
+
+INSERT INTO `tb_laporan` (`id_laporan`, `judul_laporan`, `bulan_tahun_laporan`, `tanggal_pengajuan_laporan`, `tanggal_konfirmasi_valid_laporan`, `status_laporan`, `updated_at`, `created_at`) VALUES
+(40, 'Laporan Januari', '01-2020', '2020-11-26 03:51:11', '2020-11-26 03:55:09', 'valid', '2020-11-26 03:51:11', '2020-11-26 02:59:08'),
+(41, 'Laporan Februari', '02-2020', '2020-11-26 03:51:56', '2020-11-26 03:55:16', 'valid', '2020-11-26 03:51:56', '2020-11-26 03:51:33'),
+(42, 'Laporan Maret', '03-2020', '2020-11-26 03:52:57', '2020-11-26 04:00:05', 'valid', '2020-11-26 03:52:57', '2020-11-26 03:52:20'),
+(43, 'Laporan April', '04-2020', '2020-11-26 03:53:28', '2020-11-26 04:00:15', 'valid', '2020-11-26 03:53:28', '2020-11-26 03:53:10'),
+(44, 'Laporan Mei', '05-2020', '2020-11-26 03:54:05', '2020-11-26 04:00:28', 'valid', '2020-11-26 03:54:05', '2020-11-26 03:53:47'),
+(45, 'Laporan Juni', '06-2020', '2020-11-26 03:54:38', '2020-11-26 04:00:34', 'valid', '2020-11-26 03:54:38', '2020-11-26 03:54:20'),
+(46, 'Laporan Juli', '07-2020', '2020-11-26 03:55:11', '2020-11-26 04:00:40', 'valid', '2020-11-26 03:55:11', '2020-11-26 03:54:51'),
+(47, 'Laporan Agustus', '08-2020', '2020-11-29 11:45:36', '2020-11-29 11:46:07', 'valid', '2020-11-29 11:45:36', '2020-11-26 03:55:23'),
+(48, 'Laporan September', '09-2020', '2020-11-26 05:46:52', '2020-11-26 05:48:31', 'valid', '2020-11-26 05:46:52', '2020-11-26 03:55:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_laporan_detail`
+--
+
+CREATE TABLE `tb_laporan_detail` (
+  `id_laporan_detail` int(11) NOT NULL,
+  `id_laporan` int(100) NOT NULL,
+  `id_nama_laporan` int(100) NOT NULL,
+  `file_laporan` varchar(100) NOT NULL,
+  `ekstensi_laporan` varchar(100) NOT NULL,
+  `status_laporan_detail` varchar(100) NOT NULL,
+  `updated_at` varchar(100) NOT NULL,
+  `created_at` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_laporan_detail`
+--
+
+INSERT INTO `tb_laporan_detail` (`id_laporan_detail`, `id_laporan`, `id_nama_laporan`, `file_laporan`, `ekstensi_laporan`, `status_laporan_detail`, `updated_at`, `created_at`) VALUES
+(81, 40, 2, '16063626655fbf2629f2f6f.xlsx', 'xlsx', 'valid', '2020-11-26 03:55:09', '2020-11-26 03:51:06'),
+(82, 41, 2, '16063627135fbf265979488.xlsx', 'xlsx', 'valid', '2020-11-26 03:55:16', '2020-11-26 03:51:53'),
+(83, 42, 2, '16063627755fbf2697542cd.xlsx', 'xlsx', 'valid', '2020-11-26 04:00:05', '2020-11-26 03:52:55'),
+(84, 43, 2, '16063628055fbf26b59fcd8.xlsx', 'xlsx', 'valid', '2020-11-26 04:00:15', '2020-11-26 03:53:25'),
+(85, 44, 2, '16063628415fbf26d99e805.xlsx', 'xlsx', 'valid', '2020-11-26 04:00:28', '2020-11-26 03:54:01'),
+(86, 45, 2, '16063628755fbf26fb93b12.xlsx', 'xlsx', 'valid', '2020-11-26 04:00:34', '2020-11-26 03:54:35'),
+(87, 46, 2, '16063629075fbf271b9326c.xlsx', 'xlsx', 'valid', '2020-11-26 04:00:40', '2020-11-26 03:55:07'),
+(88, 47, 2, '16063629385fbf273a52036.xlsx', 'xlsx', 'valid', '2020-11-26 04:00:45', '2020-11-26 03:55:38'),
+(89, 48, 2, '16063629675fbf2757d7b1c.xlsx', 'xlsx', 'valid', '2020-11-26 04:00:49', '2020-11-26 03:56:07'),
+(94, 48, 1, '16063695465fbf410a66bea.pdf', 'pdf', 'valid', '2020-11-26 05:48:31', '2020-11-26 05:45:46'),
+(95, 48, 3, '16063695865fbf4132e93ed.pdf', 'pdf', 'valid', '2020-11-26 05:47:28', '2020-11-26 05:46:26'),
+(96, 48, 4, '16063696095fbf41492a508.pdf', 'pdf', 'valid', '2020-11-26 05:47:31', '2020-11-26 05:46:49'),
+(106, 47, 3, '16064708525fc0ccc4b62a1.pdf', 'pdf', 'valid', '2020-11-29 11:46:06', '2020-11-27 09:54:12'),
+(107, 47, 4, '16064708665fc0ccd298dfd.pdf', 'pdf', 'valid', '2020-11-29 11:46:07', '2020-11-27 09:54:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_laporan_detail_revisi`
+--
+
+CREATE TABLE `tb_laporan_detail_revisi` (
+  `id_laporan_detail_revisi` int(11) NOT NULL,
+  `id_laporan_detail` int(100) NOT NULL,
+  `catatan_revisi` longtext DEFAULT NULL,
+  `updated_at` varchar(100) NOT NULL,
+  `created_at` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_laporan_detail_revisi`
+--
+
+INSERT INTO `tb_laporan_detail_revisi` (`id_laporan_detail_revisi`, `id_laporan_detail`, `catatan_revisi`, `updated_at`, `created_at`) VALUES
+(17, 65, 'laporan dikembalikan karena salah upload', '2020-11-24 08:42:48', '2020-11-24 08:42:48'),
+(18, 67, 'Laporan salah', '2020-11-26 02:55:33', '2020-11-26 02:55:33'),
+(19, 68, 'Laporan salah', '2020-11-26 02:55:39', '2020-11-26 02:55:39'),
+(20, 69, 'Laporan salah', '2020-11-26 02:55:44', '2020-11-26 02:55:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_nama_laporan`
+--
+
+CREATE TABLE `tb_nama_laporan` (
+  `id_nama_laporan` int(11) NOT NULL,
+  `nama_laporan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_nama_laporan`
+--
+
+INSERT INTO `tb_nama_laporan` (`id_nama_laporan`, `nama_laporan`) VALUES
+(1, 'pp39'),
+(2, 'perkara'),
+(3, 'lpj01'),
+(4, 'lpj04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_perencanaan_anggaran`
+--
+
+CREATE TABLE `tb_perencanaan_anggaran` (
+  `id_perencanaan_anggaran` int(11) NOT NULL,
+  `nilai_perencanaan_anggaran` int(11) NOT NULL,
+  `tanggal_perencanaan_anggaran` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_perencanaan_anggaran`
+--
+
+INSERT INTO `tb_perencanaan_anggaran` (`id_perencanaan_anggaran`, `nilai_perencanaan_anggaran`, `tanggal_perencanaan_anggaran`) VALUES
+(29, 600000, '2020-01-01'),
+(30, 10000000, '2020-02-01'),
+(31, 12100000, '2020-03-01'),
+(32, 5500000, '2020-04-01'),
+(33, 6100000, '2020-05-01'),
+(34, 6400000, '2020-06-01'),
+(35, 6100000, '2020-07-01'),
+(36, 6100000, '2020-08-01'),
+(37, 3100000, '2020-09-01'),
+(38, 3100000, '2020-10-01'),
+(39, 2500000, '2020-11-01'),
+(40, 5000000, '2020-12-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_realisasi_anggaran`
+--
+
+CREATE TABLE `tb_realisasi_anggaran` (
+  `id_realisasi_anggaran` int(11) NOT NULL,
+  `nilai_realisasi_anggaran` varchar(100) NOT NULL,
+  `tanggal_realisasi_anggaran` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_realisasi_anggaran`
+--
+
+INSERT INTO `tb_realisasi_anggaran` (`id_realisasi_anggaran`, `nilai_realisasi_anggaran`, `tanggal_realisasi_anggaran`) VALUES
+(13, '0', '2020-01-01'),
+(14, '10000000', '2020-02-01'),
+(15, '12100000', '2020-03-01'),
+(16, '5500000', '2020-04-01'),
+(17, '6100000', '2020-05-01'),
+(18, '6400000', '2020-06-01'),
+(19, '6700000', '2020-07-01'),
+(20, '5480000', '2020-08-01'),
+(21, '2500000', '2020-09-01'),
+(22, '2500000', '2020-10-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_saldo`
+--
+
+CREATE TABLE `tb_saldo` (
+  `id_saldo` int(11) NOT NULL,
+  `nominal` int(11) DEFAULT NULL,
+  `tergunakan` int(11) DEFAULT NULL,
+  `sisa` int(11) DEFAULT NULL,
+  `tanggal` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_saldo`
+--
+
+INSERT INTO `tb_saldo` (`id_saldo`, `nominal`, `tergunakan`, `sisa`, `tanggal`) VALUES
+(6, 66000000, 66600000, -600000, '2020-09-01'),
+(8, 2000000, 0, 2000000, '2019-09-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `level` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `level`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$YMaLuWc0P3Ajfn3DSJEcr.ODrMyPSfbmJV7CaBum6NwMi46uZs9xW', 'QDHWmGnYNjwhD5Ty5fqBsdALR9UOd7RSdKDyMa6znJJE0ewPN9WTEoHQTUtm', 'admin', '2020-09-08 22:19:03', '2020-09-08 22:19:03'),
+(2, 'pimpinan', 'pimpinan@gmail.com', NULL, '$2y$10$YMaLuWc0P3Ajfn3DSJEcr.ODrMyPSfbmJV7CaBum6NwMi46uZs9xW', 'ybC9mZMCyiLC0aI3jXXCg6CDlig2gDEARcWmgrmuetL4QDIEFiNTE0JFUM4J', 'pimpinan', '2020-09-08 22:19:03', '2020-09-08 22:19:03'),
+(3, 'operator', 'operator@gmail.com', NULL, '$2y$10$YMaLuWc0P3Ajfn3DSJEcr.ODrMyPSfbmJV7CaBum6NwMi46uZs9xW', 'Hf6ZQ5rAfy6a2sGqU3DxKeWbk854w7MLcjd5vFlu195JOinl4OQqh4jJLZOY', 'operator', '2020-09-08 22:19:03', '2020-09-08 22:19:03');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `tb_laporan`
+--
+ALTER TABLE `tb_laporan`
+  ADD PRIMARY KEY (`id_laporan`);
+
+--
+-- Indexes for table `tb_laporan_detail`
+--
+ALTER TABLE `tb_laporan_detail`
+  ADD PRIMARY KEY (`id_laporan_detail`);
+
+--
+-- Indexes for table `tb_laporan_detail_revisi`
+--
+ALTER TABLE `tb_laporan_detail_revisi`
+  ADD PRIMARY KEY (`id_laporan_detail_revisi`);
+
+--
+-- Indexes for table `tb_nama_laporan`
+--
+ALTER TABLE `tb_nama_laporan`
+  ADD PRIMARY KEY (`id_nama_laporan`);
+
+--
+-- Indexes for table `tb_perencanaan_anggaran`
+--
+ALTER TABLE `tb_perencanaan_anggaran`
+  ADD PRIMARY KEY (`id_perencanaan_anggaran`);
+
+--
+-- Indexes for table `tb_realisasi_anggaran`
+--
+ALTER TABLE `tb_realisasi_anggaran`
+  ADD PRIMARY KEY (`id_realisasi_anggaran`);
+
+--
+-- Indexes for table `tb_saldo`
+--
+ALTER TABLE `tb_saldo`
+  ADD PRIMARY KEY (`id_saldo`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_laporan`
+--
+ALTER TABLE `tb_laporan`
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `tb_laporan_detail`
+--
+ALTER TABLE `tb_laporan_detail`
+  MODIFY `id_laporan_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+
+--
+-- AUTO_INCREMENT for table `tb_laporan_detail_revisi`
+--
+ALTER TABLE `tb_laporan_detail_revisi`
+  MODIFY `id_laporan_detail_revisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `tb_nama_laporan`
+--
+ALTER TABLE `tb_nama_laporan`
+  MODIFY `id_nama_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_perencanaan_anggaran`
+--
+ALTER TABLE `tb_perencanaan_anggaran`
+  MODIFY `id_perencanaan_anggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `tb_realisasi_anggaran`
+--
+ALTER TABLE `tb_realisasi_anggaran`
+  MODIFY `id_realisasi_anggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `tb_saldo`
+--
+ALTER TABLE `tb_saldo`
+  MODIFY `id_saldo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
